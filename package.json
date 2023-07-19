@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
-    "start-strictEqual": "npx serve public",
-    "build": "node public/index.js"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
