@@ -1,12 +1,13 @@
 {
   "name": "StrictEqual API",
   "version": "1.0.0",
-  "description": "An API that consists of an implementation of JavaScript's strict equal operator using algebraic properties and native types, and thus extending Object.is()",
+  "description": "An API that consists of an implementation of JavaScript's strict equal operator using algebraic properties and native types, and obstinately avoiding array methods; it extends Object.is().",
   "main": "strictEquals.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:dev": "jest --watchAll"
+    "test:debug": "node --experimental-vm-modules node_modules/jest/bin/jest.js --debug",
+    "test:dev": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
+    "clear_jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js --clearCache"
   },
   "keywords": [],
   "author": "Vladimir Rotariu",
@@ -26,5 +27,17 @@
   "dependencies": {
     "bootstrap": "^5.3.1",
     "normalize.css": "^8.0.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["public/**/isStrictEqual.js"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
   }
 }
