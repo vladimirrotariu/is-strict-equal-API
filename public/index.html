@@ -20,7 +20,16 @@
     <section>
       <h2>Description</h2>
       <p>An API that consists of an implementation of JavaScript's strict equal operator using algebraic properties
-        and native types, and thus extending Object.is().</p>
+        and native types, and thus extending Object.is().
+      </p>
+
+      <h2>Testing with Jest</h2>
+      <p> We performed the tests below, aimed primarily at JavaScript's exceptions (e.g. <code>NaN === NaN</code> is
+        <code>false</code>). The istanbul coverage report might be found <a href="coverage-report/isStrictEqual.js.html"
+          class="link-info">here</a>.
+      </p>
+
+      <h3>API code</h3>
 
       <pre style="height: 85vh; width: 100vw">
         <code class="language-javascript">
@@ -70,25 +79,22 @@
         </code>
       </pre>
 
-      <h2>Testing with Jest</h2>
-      <p> We performed the tests below, aimed primarily at JavaScript's exceptions (e.g. <code>NaN === NaN</code> is
-        <code>false</code>). The istanbul coverage report might be found <a href="coverage-report/isStrictEqual.js.html"
-          class="link-info">here</a>.
-      </p>
+      <h3>Jest tests code</h3>
+
       <pre style="height: 85vh; width: 100vw">
         <code class="language-javascript">
-            import isStrictEqual from "./isStrictEqual.js";
+          import isStrictEqual from "./isStrictEqual.js";
             
-            describe("Given a function named strictEquals", () => {
-              let valueA, valueB;
-              describe("When given the numbers 1 and 1", () => {
-                test("Then it should return true, meaning that they are strictly equal", () => {
-                  valueA = 1, valueB = 1;
-            
-                  const result = isStrictEqual(valueA, valueB);
-            
-                  expect(result).toBeTruthy();
-                })
+          describe("Given a function named strictEquals", () => {
+            let valueA, valueB;
+            describe("When given the numbers 1 and 1", () => {
+              test("Then it should return true, meaning that they are strictly equal", () => {
+                valueA = 1, valueB = 1;
+          
+                const result = isStrictEqual(valueA, valueB);
+          
+                expect(result).toBeTruthy();
+              })
             })
             
             describe("When given the numbers NaN and NaN", () => {
