@@ -14,7 +14,7 @@
  
 
 ## All classical JavaScript exceptions handled!
-  Example:
+Example:
 ```
 NaN === NaN is false
 0 === -0 is true
