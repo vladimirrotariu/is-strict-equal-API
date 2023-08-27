@@ -52,6 +52,16 @@ describe("Given a function named strictEquals", () => {
     })
   })
 
+  describe("When given the boolean false and the boolean true", () => {
+    test("Then it should return false, meaning that they are not strictly equal", () => {
+      valueA = false, valueB = true;
+
+      const result = isStrictEqual(valueA, valueB);
+
+      expect(result).toBeFalsy();
+    })
+  })
+
   describe("When given the string 'water' and the string 'Water'", () => {
     test("Then it should return false, meaning that they are not strictly equal", () => {
       valueA = "water", valueB = "Water";

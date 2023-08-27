@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test:debug": "node --experimental-vm-modules node_modules/jest/bin/jest.js --debug",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:dev": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
     "clear_jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js --clearCache"
   },
