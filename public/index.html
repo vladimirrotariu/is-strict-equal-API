@@ -5,12 +5,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="favicon.png">
-  <script src="index.js" defer></script>
-  <title>Strict equality</title>
+  <link href="css/prism/prism.css" rel="stylesheet" />
+  <script src="src/dependencies/prism/prism.js" defer />
+  </script>
+  <link rel="stylesheet" href="css/globals/reset.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>StrictEqual API</title>
 </head>
 
-<body>
-  <h1>Check the console!</h1>
+<body class="bg-light p-2">
+  <div class="container p-0 m-0">
+    <h1>StrictEqual API</h1>
+    <section>
+      <h2>Description</h2>
+      <p>An API that consists of an implementation of JavaScript's strict equal operator using algebraic properties and
+        native
+        types, and thus extending Object.is().
+      </p>
+
+      <pre style="height: 75vh; width: 100vw">
+        <code class="language-javascript">
+          const strictEquals = (valueA, valueB) => {
+            Number.isNaN(valueA) || Number.isNaN(valueB)
+            ? (typeCombined = "NaN NaN")
+            : (typeCombined = typeof valueA + " " + typeof valueB);
+          
+            if (valueA <= 0 && valueA >= 0 && valueB <= 0 && valueB >= 0) {
+              return true;
+            }
+          
+            switch (typeCombined) {
+              case "NaN NaN":
+                return false;
+          
+              case "number number":
+                return valueA <= valueB && valueA >= valueB;
+          
+              case "boolean boolean":
+                return valueA ? valueB : !valueB;
+          
+              case "string string":
+                if (valueA.length >= valueB.length && valueA.length <= valueB.length) { 
+                  const lengthText = valueA.length; 
+                  let charactersA = valueA.split(""); 
+                  let charactersB = valueB.split(""); 
+                  let isLocallyEqual = []; 
+
+                  for (let i = 0 ; i < lengthText - 1; i++) { 
+                    isLocallyEqual.push( charactersA.slice(i, i + 1).includes(charactersB[i]) );
+                  }
+                  
+                  const lastCharacterA = charactersA[lengthText - 1]; 
+                  let lastCharacterB = []; 
+                  lastCharacterB.push(charactersB[lengthText - 1]); 
+                  isLocallyEqual.push(lastCharacterB.includes(lastCharacterA)); 
+                  return !isLocallyEqual.includes(false); 
+                }
+
+                return false; 
+              } 
+
+            return false; 
+          };
+
+          export default strictEquals;
+        </code>
+      </pre>
+    </section>
+  </div>
 </body>
 
 </html>

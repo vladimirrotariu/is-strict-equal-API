@@ -42,13 +42,4 @@ const strictEquals = (valueA, valueB) => {
   return false;
 };
 
-console.log(`1 and 1 strictly equal? ${strictEquals(1, 1)}`);
-console.log(`NaN and NaN strictly equal? ${strictEquals(NaN, NaN)}`);
-console.log(`false and true strictly equal? ${strictEquals(false, true)}`);
-console.log(`false and false strictly equal? ${strictEquals(false, false)}`);
-console.log(`0 and -0 strictly equal? ${strictEquals(0, -0)}`);
-console.log(`1 and "1" strictly equal? ${strictEquals(1, "1")}`);
-console.log(
-  `"Water" and "oil" strictly equal? ${strictEquals("Water", "oil")}`
-);
-console.log(`"Oil" and "Oil" strictly equal? ${strictEquals("Oil", "Oil")}`);
+export default strictEquals;
