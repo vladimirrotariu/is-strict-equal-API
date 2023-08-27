@@ -1,4 +1,6 @@
-const strictEquals = (valueA, valueB) => {
+const isStrictEqual = (valueA, valueB) => {
+  let typeCombined;
+
   Number.isNaN(valueA) || Number.isNaN(valueB)
     ? (typeCombined = "NaN NaN")
     : (typeCombined = typeof valueA + " " + typeof valueB);
@@ -38,8 +40,7 @@ const strictEquals = (valueA, valueB) => {
       }
       return false;
   }
-
   return false;
 };
 
-export default strictEquals;
+export default isStrictEqual;
