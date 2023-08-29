@@ -1,8 +1,9 @@
 # isStrictEqual API
 
 ## Description
-  An API that consists of an implementation of JavaScript's strict equal operator using algebraic&logical properties and native types, and thus extending ```Object.is()```. 
-  * Companion website: [is-strict-equal-api](https://is-strict-equal-api.netlify.app/)
+  An API that consists of an implementation of JavaScript's strict equal operator using algebraic&logical properties and native types, and thus extending ```Object.is()```. We do not treat ```null``` and ```undefined```, relegating
+  them to handling with ```typeof```.
+  * [COMPANION WEBSITE](https://is-strict-equal-api.netlify.app/)
 
 
 ## Tech Stack 
@@ -10,7 +11,7 @@
 * Testing: Jest (Gherkin Syntax).
 
 ## Testing
-  A full range of use cases has been tested with Jest; the istanbul coverage report might be found [here](https://is-strict-equal-api.netlify.app/coverage-report/isstrictequal.js).
+  A full range of use cases has been tested with Jest; check the [istanbul coverage report](https://is-strict-equal-api.netlify.app/coverage-report/isstrictequal.js).
  
 
 ## All classical JavaScript exceptions handled!
